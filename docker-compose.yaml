@@ -1,0 +1,10 @@
+services:
+  web:
+    build:
+      dockerfile: deployment/Dockerfile
+      context: .
+    ports:
+      - "80:80"
+    volumes:
+      - ./:/var/www
+    container_name: php-nginx-container
