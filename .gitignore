@@ -2,3 +2,4 @@ supervisord.log
 supervisord.pid
 .idea
 html
+vendor
