@@ -8,10 +8,9 @@ $filename = 'example.txt';
 $filename2 = 'file.txt';
 $content = "Привет, мир! Это пример записи в файл.\n";
 
-
-echo "Current user: " . exec('whoami');
+echo 'Current user: '.exec('whoami');
 echo "\n";
-echo "Current group: " . exec('groups');
+echo 'Current group: '.exec('groups');
 
 // Открываем файл для записи ('w') или создания, если он не существует
 $file = fopen($filename, 'aw');
@@ -29,14 +28,14 @@ if ($file) {
     echo "Не удалось открыть файл '$filename' для записи.";
 }
 
-    if ($file2) {
-        // Пишем содержимое в файл
-        fwrite($file2, $content);
+if ($file2) {
+    // Пишем содержимое в файл
+    fwrite($file2, $content);
 
-        // Закрываем файл
-        fclose($file2);
+    // Закрываем файл
+    fclose($file2);
 
-        echo "Файл '$filename2' успешно создан и данные записаны.";
-    } else {
-        echo "Не удалось открыть файл '$filename2' для записи.";
-    }
+    echo "Файл '$filename2' успешно создан и данные записаны.";
+} else {
+    echo "Не удалось открыть файл '$filename2' для записи.";
+}
