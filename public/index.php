@@ -1,9 +1,16 @@
 <?php
 
+use Learn\Custom\Http\Kernel;
 use Learn\Custom\Http\Request;
 
-require_once dirname(__DIR__).'/vendor/autoload.php';
+define('BASE_PATH', dirname(__DIR__));
+
+require_once BASE_PATH.'/vendor/autoload.php';
 
 $request = Request::createFromGlobals();
 
-dd($request);
+$kernel = new Kernel;
+
+$response = $kernel->handle($request);
+
+$response->send();

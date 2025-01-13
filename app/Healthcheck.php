@@ -4,9 +4,8 @@ namespace App;
 
 class Healthcheck
 {
-    public function getHealth()
+    public function getHealth(): string
     {
-        echo 'Healthy ok 100%';
-
+        return 'Healthy ok 100%';
     }
 }

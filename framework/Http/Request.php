@@ -2,14 +2,14 @@
 
 namespace Learn\Custom\Http;
 
-class Request
+readonly class Request
 {
     public function __construct(
-        private readonly array $getParams,
-        private readonly array $postData,
-        private readonly array $cookies,
-        private readonly array $files,
-        private readonly array $serverParams,
+        private array $getParams,
+        private array $postData,
+        private array $cookies,
+        private array $files,
+        private array $serverParams,
     ) {}
 
     public static function createFromGlobals(): static
@@ -23,4 +23,13 @@ class Request
         );
     }
 
+    public function getMethod(): string
+    {
+        return $_SERVER['REQUEST_METHOD'];
+    }
+
+    public function getUri(): string
+    {
+        return explode('?', $_SERVER['REQUEST_URI'])[0];
+    }
 }
