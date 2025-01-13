@@ -1,11 +1,9 @@
 <?php
 
-require_once dirname(__DIR__) . '/vendor/autoload.php';
+use Learn\Custom\Http\Request;
 
-use App\Healthcheck;
+require_once dirname(__DIR__).'/vendor/autoload.php';
 
-$healtchecker = new Healthcheck();
+$request = Request::createFromGlobals();
 
-$healtchecker->getHealth();
-
-dd("Hello");
+dd($request);
