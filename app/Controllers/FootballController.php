@@ -8,7 +8,7 @@ class FootballController
 {
     public function getMatch(int $id)
     {
-        $content = sprintf('<h1>Football result %s</h1>', $id);
+        $content = sprintf('<h1>Football resulted %s</h1>', $id);
 
         return new Response($content);
 

@@ -2,32 +2,24 @@
 
 namespace Learn\Custom\Http;
 
-use FastRoute\Dispatcher;
-use FastRoute\RouteCollector;
-
-use function FastRoute\simpleDispatcher;
+use Learn\Custom\Http\Routing\RouterInterface;
+use Throwable;
 
 class Kernel
 {
+    public function __construct(
+        private readonly RouterInterface $router,
+    ) {}
+
     public function handle(Request $request): Response
     {
-        $dispatcher = simpleDispatcher(function (RouteCollector $collector) {
-
-            $routes = include BASE_PATH.'/routes/web.php';
-
-            foreach ($routes as $route) {
-                $collector->addRoute(...$route);
-            }
-        });
-
-        $routeInfo = $dispatcher->dispatch($request->getMethod(), $request->getUri());
-
-        if ($routeInfo[0] === Dispatcher::NOT_FOUND) {
-            return new Response('Not found', 404);
+        try {
+            [$routeHandler, $vars] = $this->router->dispatch($request);
+            $response = call_user_func_array($routeHandler, $vars);
+        } catch (Throwable $e) {
+            $response = new Response($e->getMessage(), 500);
         }
 
-        [$statusCode, [$controller, $method], $vars] = $routeInfo;
-
-        return call_user_func_array([new $controller, $method], $vars);
+        return $response;
     }
 }
