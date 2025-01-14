@@ -2,7 +2,4 @@
 
 namespace Learn\Custom\Http\Exceptions;
 
-class MethodNotAllowedException extends HttpException
-{
-
-}
+class MethodNotAllowedException extends HttpException {}

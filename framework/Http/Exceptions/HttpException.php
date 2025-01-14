@@ -2,7 +2,4 @@
 
 namespace Learn\Custom\Http\Exceptions;
 
-class HttpException extends \Exception
-{
-
-}
+class HttpException extends \Exception {}
