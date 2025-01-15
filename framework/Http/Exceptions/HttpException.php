@@ -2,8 +2,8 @@
 
 namespace Learn\Custom\Http\Exceptions;
 
-class HttpException extends \Exception {
-
+class HttpException extends \Exception
+{
     protected int $httpCode = 500;
 
     public function getHttpCode(): int
@@ -15,5 +15,4 @@ class HttpException extends \Exception {
     {
         $this->httpCode = $httpCode;
     }
-
 }
