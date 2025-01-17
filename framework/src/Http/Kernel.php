@@ -3,7 +3,7 @@
 namespace Learn\Custom\Http;
 
 use Learn\Custom\Http\Exceptions\HttpException;
-use Learn\Custom\Http\Routing\RouterInterface;
+use Learn\Custom\Routing\RouterInterface;
 use Throwable;
 
 class Kernel

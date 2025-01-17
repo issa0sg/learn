@@ -1,0 +1,19 @@
+{
+    "name": "learn/custom",
+    "minimum-stability": "dev",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Sagi Issa",
+            "email": "sagi.issa.eng@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Learn\\Custom\\": "src"
+        }
+    },
+    "require": {
+        "nikic/fast-route": "^1.3"
+    }
+}

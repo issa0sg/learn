@@ -4,8 +4,35 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "08bd7de9d51f69fabc1f8268ee8a90e0",
+    "content-hash": "5251596f8f6bba9da096a47fdc604b37",
     "packages": [
+        {
+            "name": "learn/custom",
+            "version": "dev-main",
+            "dist": {
+                "type": "path",
+                "url": "framework",
+                "reference": "3be259e951cdbb2321a55d24e451669c66aeb7eb"
+            },
+            "require": {
+                "nikic/fast-route": "^1.3"
+            },
+            "type": "project",
+            "autoload": {
+                "psr-4": {
+                    "Learn\\Custom\\": "src"
+                }
+            },
+            "authors": [
+                {
+                    "name": "Sagi Issa",
+                    "email": "sagi.issa.eng@gmail.com"
+                }
+            ],
+            "transport-options": {
+                "relative": true
+            }
+        },
         {
             "name": "nikic/fast-route",
             "version": "v1.3.0",
@@ -60,16 +87,16 @@
     "packages-dev": [
         {
             "name": "laravel/pint",
-            "version": "v1.19.0",
+            "version": "v1.20.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/pint.git",
-                "reference": "8169513746e1bac70c85d6ea1524d9225d4886f0"
+                "reference": "53072e8ea22213a7ed168a8a15b96fbb8b82d44b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/pint/zipball/8169513746e1bac70c85d6ea1524d9225d4886f0",
-                "reference": "8169513746e1bac70c85d6ea1524d9225d4886f0",
+                "url": "https://api.github.com/repos/laravel/pint/zipball/53072e8ea22213a7ed168a8a15b96fbb8b82d44b",
+                "reference": "53072e8ea22213a7ed168a8a15b96fbb8b82d44b",
                 "shasum": ""
             },
             "require": {
@@ -122,7 +149,7 @@
                 "issues": "https://github.com/laravel/pint/issues",
                 "source": "https://github.com/laravel/pint"
             },
-            "time": "2024-12-30T16:20:10+00:00"
+            "time": "2025-01-14T16:20:53+00:00"
         },
         {
             "name": "symfony/polyfill-mbstring",
@@ -290,7 +317,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {},
+    "stability-flags": {
+        "learn/custom": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

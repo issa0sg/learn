@@ -1,6 +1,6 @@
 <?php
 
-namespace Learn\Custom\Http\Routing;
+namespace Learn\Custom\Routing;
 
 use Learn\Custom\Http\Request;
 

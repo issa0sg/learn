@@ -2,7 +2,7 @@
 
 use Learn\Custom\Http\Kernel;
 use Learn\Custom\Http\Request;
-use Learn\Custom\Http\Routing\Router;
+use Learn\Custom\Routing\Router;
 
 define('BASE_PATH', dirname(__DIR__));
 

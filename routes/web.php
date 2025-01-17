@@ -2,7 +2,7 @@
 
 use App\Controllers\FootballController;
 use App\Controllers\HealthController;
-use Learn\Custom\Http\Routing\Route;
+use Learn\Custom\Routing\Route;
 
 return [
     Route::get('/__health', [HealthController::class, '__health']),
