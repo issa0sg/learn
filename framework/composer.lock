@@ -4,8 +4,90 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "139aa9695b00e6a9c661aabf21d5688e",
+    "content-hash": "4807f813222480080fc8d9678665d29e",
     "packages": [
+        {
+            "name": "league/container",
+            "version": "4.2.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thephpleague/container.git",
+                "reference": "7ea728b013b9a156c409c6f0fc3624071b742dec"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/container/zipball/7ea728b013b9a156c409c6f0fc3624071b742dec",
+                "reference": "7ea728b013b9a156c409c6f0fc3624071b742dec",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.2 || ^8.0",
+                "psr/container": "^1.1 || ^2.0"
+            },
+            "provide": {
+                "psr/container-implementation": "^1.0"
+            },
+            "replace": {
+                "orno/di": "~2.0"
+            },
+            "require-dev": {
+                "nette/php-generator": "^3.4",
+                "nikic/php-parser": "^4.10",
+                "phpstan/phpstan": "^0.12.47",
+                "phpunit/phpunit": "^8.5.17",
+                "roave/security-advisories": "dev-latest",
+                "scrutinizer/ocular": "^1.8",
+                "squizlabs/php_codesniffer": "^3.6"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev",
+                    "dev-2.x": "2.x-dev",
+                    "dev-3.x": "3.x-dev",
+                    "dev-4.x": "4.x-dev",
+                    "dev-master": "4.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "League\\Container\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Phil Bennett",
+                    "email": "mail@philbennett.co.uk",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A fast and intuitive dependency injection container.",
+            "homepage": "https://github.com/thephpleague/container",
+            "keywords": [
+                "container",
+                "dependency",
+                "di",
+                "injection",
+                "league",
+                "provider",
+                "service"
+            ],
+            "support": {
+                "issues": "https://github.com/thephpleague/container/issues",
+                "source": "https://github.com/thephpleague/container/tree/4.2.4"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/philipobenito",
+                    "type": "github"
+                }
+            ],
+            "time": "2024-11-10T12:42:13+00:00"
+        },
         {
             "name": "nikic/fast-route",
             "version": "v1.x-dev",
@@ -683,12 +765,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "8a9f94919cb3e116cb62270097c742125acc8a49"
+                "reference": "f6044d24f42ce5e572b7919687a3d2c0148fbdb4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/8a9f94919cb3e116cb62270097c742125acc8a49",
-                "reference": "8a9f94919cb3e116cb62270097c742125acc8a49",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/f6044d24f42ce5e572b7919687a3d2c0148fbdb4",
+                "reference": "f6044d24f42ce5e572b7919687a3d2c0148fbdb4",
                 "shasum": ""
             },
             "require": {
@@ -773,7 +855,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2025-01-16T09:23:43+00:00"
+            "time": "2025-01-20T07:27:19+00:00"
         },
         {
             "name": "sebastian/cli-parser",
@@ -1942,7 +2024,6 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "phpunit/phpunit": 20,
-        "psr/container": 20,
         "symfony/var-dumper": 20
     },
     "prefer-stable": false,

@@ -2,18 +2,16 @@
 
 use Learn\Custom\Http\Kernel;
 use Learn\Custom\Http\Request;
-use Learn\Custom\Routing\Router;
 
 define('BASE_PATH', dirname(__DIR__));
 
 require_once BASE_PATH.'/vendor/autoload.php';
 
+/** @var \League\Container\Container $container */
+$container = require BASE_PATH . '/config/services.php';
+
 $request = Request::createFromGlobals();
 
-$router = new Router;
-
-$kernel = new Kernel($router);
-
-$response = $kernel->handle($request);
+$response = $container->get(Kernel::class)->handle($request);
 
 $response->send();
