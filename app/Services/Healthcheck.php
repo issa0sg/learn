@@ -1,11 +1,9 @@
 <?php
 
-namespace App;
+namespace App\Services;
 
 class Healthcheck
 {
-    public function __construct(int $value) {}
-
     public function getHealth(): string
     {
         return 'Healthy ok 100%';

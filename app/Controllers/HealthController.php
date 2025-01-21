@@ -2,13 +2,19 @@
 
 namespace App\Controllers;
 
+use App\Services\Healthcheck;
 use Learn\Custom\Http\Response;
 
 class HealthController
 {
+    public function __construct(
+        protected Healthcheck $healthcheck
+    ) {}
+
     public function __health(): Response
     {
-        $content = '<h1>health ok</h1>';
+        $msg = $this->healthcheck->getHealth();
+        $content = "<h1>$msg</h1>";
 
         return new Response($content);
     }
