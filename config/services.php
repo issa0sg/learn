@@ -3,12 +3,16 @@
 use League\Container\Argument\Literal\StringArgument;
 use League\Container\Container;
 use League\Container\ReflectionContainer;
+use Learn\Custom\Controller\AbstractController;
 use Learn\Custom\Http\Kernel;
 use Learn\Custom\Routing\Router;
 use Learn\Custom\Routing\RouterInterface;
 use Symfony\Component\Dotenv\Dotenv as DotenvAlias;
+use Twig\Environment;
+use Twig\Loader\FilesystemLoader;
 
-$routes = include BASE_PATH.'/routes/web.php';
+$routes = include BASE_PATH . '/routes/web.php';
+$viewsPath = BASE_PATH . '/views';
 
 $dotent = new DotenvAlias();
 $dotent->load(BASE_PATH . '/.env');
@@ -26,5 +30,14 @@ $container->extend(RouterInterface::class)->addMethodCall('registerRoutes', ['ro
 $container->add(Kernel::class)
     ->addArgument(RouterInterface::class)
     ->addArgument($container);
+
+$container->addShared('twig-loader', FilesystemLoader::class)
+    ->addArgument(new StringArgument($viewsPath));
+
+$container->addShared('twig', Environment::class)
+    ->addArgument('twig-loader');
+
+$container->inflector(AbstractController::class)
+    ->invokeMethod('setContainer', [$container]);
 
 return $container;

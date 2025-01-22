@@ -4,18 +4,18 @@ namespace Learn\Custom\Routing;
 
 use FastRoute\Dispatcher;
 use FastRoute\RouteCollector;
-use League\Container\Container;
 use Learn\Custom\Http\Exceptions\MethodNotAllowedException;
 use Learn\Custom\Http\Exceptions\RouteNotFoundException;
 use Learn\Custom\Http\Request;
 
+use Psr\Container\ContainerInterface;
 use function FastRoute\simpleDispatcher;
 
 class Router implements RouterInterface
 {
     private array $routes = [];
 
-    public function dispatch(Request $request, Container $container)
+    public function dispatch(Request $request, ContainerInterface $container)
     {
         [$handler, $vars] = $this->extractRouteInfo($request);
 

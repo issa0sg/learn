@@ -5,7 +5,7 @@ namespace Learn\Custom\Http;
 class Response
 {
     public function __construct(
-        private mixed $content,
+        private mixed $content = '',
         private readonly int $statusCode = 200,
         private array $headers = []
     ) {
@@ -15,5 +15,10 @@ class Response
     public function send()
     {
         echo $this->content;
+    }
+
+    public function setContent(mixed $content): void
+    {
+        $this->content = $content;
     }
 }

@@ -3,19 +3,19 @@
 namespace App\Controllers;
 
 use App\Services\Healthcheck;
+use Learn\Custom\Controller\AbstractController;
 use Learn\Custom\Http\Response;
 
-class HealthController
+class HealthController extends AbstractController
 {
     public function __construct(
-        protected Healthcheck $healthcheck
+        protected Healthcheck $healthcheck,
     ) {}
 
     public function __health(): Response
     {
-        $msg = $this->healthcheck->getHealth();
-        $content = "<h1>$msg</h1>";
+        $message = $this->healthcheck->getHealth();
 
-        return new Response($content);
+        return $this->render('health.html.twig', ['message' => $message]);
     }
 }
