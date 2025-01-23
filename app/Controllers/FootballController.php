@@ -2,15 +2,13 @@
 
 namespace App\Controllers;
 
+use Learn\Custom\Controller\AbstractController;
 use Learn\Custom\Http\Response;
 
-class FootballController
+class FootballController extends AbstractController
 {
     public function getMatch(int $id)
     {
-        $content = sprintf('<h1>Football resulted %s</h1>', $id);
-
-        return new Response($content);
-
+        return $this->render('get_match.html.twig', ['id' => $id]);
     }
 }
