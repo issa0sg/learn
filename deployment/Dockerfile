@@ -9,7 +9,8 @@ RUN apt-get update && apt-get install -y \
     git \
     libzip-dev \
     libonig-dev \
-    && docker-php-ext-install zip mbstring \
+    iputils-ping \
+    && docker-php-ext-install zip mbstring pdo_mysql\
     && rm -rf /var/lib/apt/lists/*
 
 RUN curl -sS https://getcomposer.org/download/latest-stable/composer.phar -o /usr/local/bin/composer \

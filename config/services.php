@@ -17,6 +17,17 @@ $viewsPath = BASE_PATH . '/views';
 $dotent = new DotenvAlias();
 $dotent->load(BASE_PATH . '/.env');
 
+$connectionParams = [
+    'dbname' => 'app-learn-database',
+    'user' => 'appuser',
+    'password' => 'Aa1234',
+    'host' => 'db',
+    'driver' => 'pdo_mysql',
+];
+
+$conn = \Doctrine\DBAL\DriverManager::getConnection($connectionParams);
+$conn->getServerVersion();
+
 $container = new Container;
 
 $container->delegate(new ReflectionContainer);

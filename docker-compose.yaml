@@ -8,3 +8,29 @@ services:
     volumes:
       - ./:/var/www
     container_name: php-nginx-container
+    networks:
+      - app-learn
+
+  db:
+    image: mariadb:11.2.6-jammy
+    volumes:
+      - app-learn-db:/home/sagiissa/my_github/learn/app-learn-db
+    environment:
+      - MARIADB_ROOT_PASSWORD=${MARIADB_ROOT_PASSWORD}
+      - MARIADB_USER=${MARIADB_USER}
+      - MARIADB_PASSWORD=${MARIADB_PASSWORD}
+      - MARIADB_DATABASE=${MARIADB_DATABASE}
+    ports:
+      - "3306:3306"
+    networks:
+      - app-learn
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+volumes:
+  app-learn-db:
+
+networks:
+  app-learn:
