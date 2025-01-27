@@ -1,9 +1,12 @@
 <?php
 
+use Doctrine\DBAL\Connection;
+use Doctrine\DBAL\Tools\DsnParser;
 use League\Container\Argument\Literal\StringArgument;
 use League\Container\Container;
 use League\Container\ReflectionContainer;
 use Learn\Custom\Controller\AbstractController;
+use Learn\Custom\Dbal\ConnectionFactory;
 use Learn\Custom\Http\Kernel;
 use Learn\Custom\Routing\Router;
 use Learn\Custom\Routing\RouterInterface;
@@ -13,20 +16,10 @@ use Twig\Loader\FilesystemLoader;
 
 $routes = include BASE_PATH . '/routes/web.php';
 $viewsPath = BASE_PATH . '/views';
+$dbUrl = 'pdo-mysql://appuser:Aa1234@db/app-learn-database';
 
 $dotent = new DotenvAlias();
 $dotent->load(BASE_PATH . '/.env');
-
-$connectionParams = [
-    'dbname' => 'app-learn-database',
-    'user' => 'appuser',
-    'password' => 'Aa1234',
-    'host' => 'db',
-    'driver' => 'pdo_mysql',
-];
-
-$conn = \Doctrine\DBAL\DriverManager::getConnection($connectionParams);
-$conn->getServerVersion();
 
 $container = new Container;
 
@@ -50,5 +43,14 @@ $container->addShared('twig', Environment::class)
 
 $container->inflector(AbstractController::class)
     ->invokeMethod('setContainer', [$container]);
+
+$container->add(ConnectionFactory::class)
+    ->addArgument(new StringArgument($dbUrl))
+    ->addArgument(DsnParser::class);
+
+
+$container->addShared(Connection::class, function () use ($container): Connection {
+    return $container->get(ConnectionFactory::class)->create();
+});
 
 return $container;
