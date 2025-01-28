@@ -2,10 +2,10 @@
 
 namespace Learn\Custom\Http;
 
+use Exception;
 use League\Container\Container;
 use Learn\Custom\Http\Exceptions\HttpException;
 use Learn\Custom\Routing\RouterInterface;
-use Exception;
 
 class Kernel
 {

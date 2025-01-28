@@ -7,8 +7,8 @@ use FastRoute\RouteCollector;
 use Learn\Custom\Http\Exceptions\MethodNotAllowedException;
 use Learn\Custom\Http\Exceptions\RouteNotFoundException;
 use Learn\Custom\Http\Request;
-
 use Psr\Container\ContainerInterface;
+
 use function FastRoute\simpleDispatcher;
 
 class Router implements RouterInterface

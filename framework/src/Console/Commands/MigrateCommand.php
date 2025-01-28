@@ -6,12 +6,11 @@ use Learn\Custom\Console\CommandInterface;
 
 class MigrateCommand implements CommandInterface
 {
-    protected string $name;
+    protected string $name = 'migrate';
 
     public function execute(array $parameters = []): int
     {
-
-        return 0;
+        echo json_encode($parameters) . PHP_EOL;
+        return 123123;
     }
-
 }

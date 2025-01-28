@@ -8,18 +8,19 @@ use Psr\Container\ContainerInterface;
 abstract class AbstractController
 {
     protected ?ContainerInterface $container = null;
+
     public function setContainer(ContainerInterface $container): void
     {
         $this->container = $container;
     }
 
-    public function render(string $view, array $data = [], Response $response = null): Response
+    public function render(string $view, array $data = [], ?Response $response = null): Response
     {
-        $twig = $this->container->get("twig");
+        $twig = $this->container->get('twig');
 
         $content = $twig->render($view, $data);
 
-        $response ??= new Response();
+        $response ??= new Response;
 
         $response->setContent($content);
 

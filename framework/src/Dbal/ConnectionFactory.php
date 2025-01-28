@@ -11,13 +11,12 @@ class ConnectionFactory
     public function __construct(
         private readonly string $databaseUrl,
         protected DsnParser $dsnParser
-    )
-    {
-    }
+    ) {}
 
     public function create(): Connection
     {
         $connectionParams = $this->dsnParser->parse($this->databaseUrl);
+
         return DriverManager::getConnection($connectionParams);
     }
 }
