@@ -8,9 +8,7 @@ class Application
 {
     public function __construct(
         private ContainerInterface $container
-    )
-    {
-    }
+    ) {}
 
     public function run(): int
     {
@@ -42,6 +40,7 @@ class Application
                 $options[$option[0]] = $option[1] ?? null;
             }
         }
+
         return $options;
     }
 }
