@@ -11,6 +11,7 @@ return new class
         $table->addColumn('id', Types::INTEGER, ['autoincrement' => true]);
         $table->addColumn('user_id', Types::INTEGER, ['notnull' => false]);
         $table->addColumn('title', Types::STRING, ['notnull' => false, 'length' => 255]);
+        $table->addColumn('description', Types::TEXT);
         $table->addColumn('created_at', Types::DATETIME_IMMUTABLE, ['default' => 'CURRENT_TIMESTAMP']);
         $table->setPrimaryKey(['id']);
     }

@@ -23,6 +23,16 @@ readonly class Request
         );
     }
 
+    public function postData(string $key): ?string
+    {
+        return $this->postData[$key] ?? null;
+    }
+
+    public function getAll(): array
+    {
+        return $this->postData;
+    }
+
     public function getMethod(): string
     {
         return $_SERVER['REQUEST_METHOD'];

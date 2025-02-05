@@ -4,6 +4,7 @@ namespace Learn\Custom\Routing;
 
 use FastRoute\Dispatcher;
 use FastRoute\RouteCollector;
+use Learn\Custom\Controller\AbstractController;
 use Learn\Custom\Http\Exceptions\MethodNotAllowedException;
 use Learn\Custom\Http\Exceptions\RouteNotFoundException;
 use Learn\Custom\Http\Request;
@@ -22,6 +23,10 @@ class Router implements RouterInterface
         if (is_array($handler)) {
             [$controllerId, $method] = $handler;
             $controller = $container->get($controllerId);
+
+            if ($controller instanceof AbstractController) {
+                $controller->setRequest($request);
+            }
             $handler = [$controller, $method];
         }
 

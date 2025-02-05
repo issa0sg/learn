@@ -21,7 +21,7 @@ class MigrateCommand implements CommandInterface
         try {
             $this->createMigrationTable();
 
-            $this->connection->beginTransaction();
+//            $this->connection->beginTransaction();
 
             $appliedMigrations = $this->getAppliedMigrations();
 
@@ -45,14 +45,10 @@ class MigrateCommand implements CommandInterface
                 $this->connection->executeQuery($sqlRow);
             }
 
-            $this->connection->commit();
+//            $this->connection->commit();
 
             return 0;
         } catch (Throwable $e) {
-            if ($this->connection->isTransactionActive()) {
-                dd(123);
-                $this->connection->rollBack();
-            }
             throw $e;
         }
     }
